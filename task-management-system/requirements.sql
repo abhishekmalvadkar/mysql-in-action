@@ -37,6 +37,23 @@ order by t.due_date desc
 limit 6,2 -- skip 1st 6 row means page 4 with 2 per page
 ;
 
+-- On My Report page, as a user I shuold able to see pending task count and completed task count
+-- input : user id
+-- Approach 1 but output should have pending_count and completed_count as column
+select 
+	status , 
+	count(1) 
+from tasks t 
+where t.created_by = 3
+group by status ;
+
+-- Approach 2 
+select 
+	ifnull(sum(if(t.status = 'Pending', 1, 0)), 0) as pendingCount,
+	ifnull(sum(if(t.status = 'Completed', 1, 0)), 0) as completedCount
+from tasks t 
+where t.created_by = 3;
+
 
 
 
