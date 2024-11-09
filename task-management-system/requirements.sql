@@ -89,6 +89,13 @@ join users u on u.id = t.created_by
 group by u.name
 ;
 
+-- As a admin, I want to know total users count, active users count and inactive users count
+select 
+	count(1) as totalCount,
+	sum(if(u.active = 1, 1 , 0)) as activeCount,
+	sum(if(u.active = 0, 1 , 0)) as inactiveCount
+from users u ;
+
 
 
 
