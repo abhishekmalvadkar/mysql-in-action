@@ -21,12 +21,13 @@ and u.active = true;
 -- we will create dynamic query in JPA here you can assume commenet and uncomment part
 select 
 	t.title, 
-	concat(trim(substring(t.description,1,20)), '....'),
+	concat(trim(substring(t.description,1,20)), '....') as description,
 	t.status ,
-	date_format(t.due_date, '%d %b, %Y') 
+	date_format(t.due_date, '%d %b, %Y') as due_date
 	from tasks t
 where 1=1
 -- and concat(t.title, t.description, t.status, t.due_date) like '%discussion%' -- enable if user typed something in search bar
 -- and t.status = 'Pending' -- enable if user selected any status from status dropdown
 and t.due_date = '2024-11-09' 
 order by t.due_date desc;
+
