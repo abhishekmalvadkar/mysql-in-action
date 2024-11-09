@@ -6,7 +6,7 @@ and u.active = true;
 
 -- user profile page support query
 select 
-	upper(u.name) as username, 
+  upper(u.name) as username, 
   u.email as email, 
   ifnull(u.last_login_time, '-') as last_login_time 
 from users u
