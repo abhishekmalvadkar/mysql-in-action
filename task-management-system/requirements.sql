@@ -77,7 +77,7 @@ join users u on u.id = t.created_by
 group by u.name
 order by u.name asc;
 
--- As a UI developer, I will require unique number with each row so I can use them when check box will be select from table first row
+-- As a UI developer, I will require unique number for above requirement query with each row so I can use them when check box will be select from table first row
 select 
 	row_number() over (order by u.name) as id,
 	u.name as userName,
