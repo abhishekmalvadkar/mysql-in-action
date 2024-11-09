@@ -54,6 +54,31 @@ select
 from tasks t 
 where t.created_by = 3;
 
+-- As a admin, i should able to see user level pending count, completed count and total task count along with user name
+select 
+	u.name as userName,
+	count(1) as totalCount,
+	ifnull(sum(if(t.status = 'Pending', 1, 0)), 0) as pendingCount,
+	ifnull(sum(if(t.status = 'Completed', 1, 0)), 0) as completedCount
+from tasks t
+join users u on u.id = t.created_by
+group by u.name
+order by u.name asc;
+
+-- if you want append Task suffix from backend itself then
+-- As a admin, i should able to see user level pending count, completed count and total task count along with user name
+select 
+	u.name as userName,
+	concat(count(1), ' ' , 'Tasks') as totalCount,
+	concat(ifnull(sum(if(t.status = 'Pending', 1, 0)), 0), ' ' , 'Tasks') as pendingCount,
+	concat(ifnull(sum(if(t.status = 'Completed', 1, 0)), 0), ' ', 'Tasks') as completedCount
+from tasks t
+join users u on u.id = t.created_by
+group by u.name
+order by u.name asc;
+
+
+
 
 
 
