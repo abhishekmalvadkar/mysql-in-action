@@ -47,4 +47,8 @@ insert into tasks(title, description,due_date, status, created_by, created_on, u
 ('Play Table tenis', 'Need to play table tenis', curdate(), 'Pending',3, utc_timestamp(), 3, utc_timestamp()),
 ('Need to travle for T20', 'Need to travle for match', curdate(), 'Completed',3, utc_timestamp(), 3, utc_timestamp());
 
+-- check tables with data
+select * from users;
+select * from tasks;
+
 
