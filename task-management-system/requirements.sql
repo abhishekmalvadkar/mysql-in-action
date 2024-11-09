@@ -26,7 +26,7 @@ select
 	date_format(t.due_date, '%d %b, %Y') 
 	from tasks t
 where 1=1
--- and concat(t.title, t.description, t.status, t.due_date) like '%discussion%' -- enable if user typed somethinh in search bar
--- and t.status = 'Pending'
+-- and concat(t.title, t.description, t.status, t.due_date) like '%discussion%' -- enable if user typed something in search bar
+-- and t.status = 'Pending' -- enable if user selected any status from status dropdown
 and t.due_date = '2024-11-09' 
 order by t.due_date desc;
