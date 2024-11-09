@@ -20,6 +20,7 @@ and u.active = true;
 -- user want to see high priority task first in list
 -- we will create dynamic query in JPA here you can assume commenet and uncomment part
 select 
+	t.id,
 	t.title, 
 	concat(trim(substring(t.description,1,20)), '....') as description,
 	t.status ,
@@ -29,5 +30,13 @@ where 1=1
 -- and concat(t.title, t.description, t.status, t.due_date) like '%discussion%' -- enable if user typed something in search bar
 -- and t.status = 'Pending' -- enable if user selected any status from status dropdown
 and t.due_date = '2024-11-09' 
-order by t.due_date desc;
+order by t.due_date desc
+-- limit 0,2 -- skip 1st 0 row means page 1 with 2 per page
+-- limit 2,2 -- skip 1st 2 row means page 2 with 2 per page
+-- limit 4,2 -- skip 1st 4 row means page 3 with 2 per page
+limit 6,2 -- skip 1st 6 row means page 4 with 2 per page
+;
+
+
+
 
