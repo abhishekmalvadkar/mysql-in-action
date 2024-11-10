@@ -1,4 +1,4 @@
--- Retrieve the names and salaries of all employees in the “Engineering” department.
+-- 1. Retrieve the names and salaries of all employees in the “Engineering” department.
 select 
 	concat(e.first_name, ' ', upper(e.last_name)) as empFullname,
 	e.salary
@@ -6,11 +6,11 @@ from employees e
 join departments d on d.department_id = e.department_id 
 where d.department_name = 'Engineering';
 
--- List all employees who were hired in the last year.
+-- 2. List all employees who were hired in the last year.
 select * from employees e 
 where year(hire_date) = year(curdate()) - 1;
 
--- Find the top 3 departments with the highest average salary.
+-- 3. Find the top 3 departments with the highest average salary.
 select 
 	d.department_name ,
 	avg(e.salary) 
@@ -20,7 +20,7 @@ group by d.department_name
 order by 2 desc limit 3
 ;
 
--- Retrieve employees who are assigned to more than one project.
+-- 4. Retrieve employees who are assigned to more than one project.
 select 
 	e.employee_id , e.first_name ,
 	count(1) as totalProject
@@ -31,7 +31,7 @@ group by e.employee_id, e.first_name
 having totalProject > 1
 ;
 
--- Write a query to find employees who earn more than the average salary of their respective departments.
+-- 5. Write a query to find employees who earn more than the average salary of their respective departments.
 with DEPT_EMP_AVG_SALARY as
 (
 	select
@@ -48,7 +48,7 @@ from DEPT_EMP_AVG_SALARY
 where empSalary > avgSalyDept
 ;
 
--- Get the project names and the total number of employees assigned to each project, 
+-- 6. Get the project names and the total number of employees assigned to each project, 
 -- only showing projects with more than 5 employees.
 select 
 	p.project_id ,
