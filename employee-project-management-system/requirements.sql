@@ -47,3 +47,14 @@ select *
 from DEPT_EMP_AVG_SALARY
 where empSalary > avgSalyDept
 ;
+
+-- Get the project names and the total number of employees assigned to each project, 
+-- only showing projects with more than 5 employees.
+select 
+	p.project_id ,
+	p.project_name ,
+	count(ep.employee_id) as totalEmp 
+from employee_projects ep
+join projects p on p.project_id = ep.project_id 
+group by p.project_id , p.project_name
+having totalEmp > 5;
