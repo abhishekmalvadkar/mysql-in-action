@@ -100,6 +100,9 @@ select
 	m.message_text
 from messages m 
 where m.receiver_id = 2
-and date(m.`timestamp`) = date(date_sub(now(), interval 1 day)) 
+and date(m.`timestamp`) = date(date_sub(now(), interval 1 day))
+-- and date(m.`timestamp`) = date(now() - interval 1 day)
+-- and date(m.`timestamp`) = curdate() - interval 1 day
+-- and date(m.`timestamp`) = (curdate() - interval 1 day)
 ;
 
