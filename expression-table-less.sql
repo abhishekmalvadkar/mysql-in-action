@@ -27,3 +27,6 @@ select date_format(curdate(), '%D %M, %y'); -- 11th November, 24
 set @msg_sepretor = '|';
 select concat_ws(@msg_sepretor,'Hello', 'Abhi'); -- Hello|Abhi
 
+select now() - interval 1 day;
+select curdate() - interval 1 day; 
+
