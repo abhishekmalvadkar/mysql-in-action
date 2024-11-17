@@ -95,3 +95,11 @@ where u.user_id not in
 	from group_members gm 
 );
 
+-- Find messages which recived yesterday by a user_id = 2
+select 
+	m.message_text
+from messages m 
+where m.receiver_id = 2
+and date(m.`timestamp`) = date(date_sub(now(), interval 1 day)) 
+;
+
