@@ -18,3 +18,6 @@ or c.referee_id is null
 
   To include customers who were not referred by anyone (i.e., referee_id IS NULL), you should use the above query:
 /*
+
+select 1 <> 2; -- 1 means take record in result set
+select null <> 2; -- null means nothing or false ot don't take record in result set
