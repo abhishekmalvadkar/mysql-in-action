@@ -21,3 +21,19 @@ from Ratings r
 join movies m on m.movie_id = r.movie_id
 order by r.votes desc limit 1
 ;
+
+
+-- Get the names of actors who acted in movies rated above 9.0.
+select * from actors a
+where a.actor_id in (
+        select 
+            mc.actor_id 
+        from MovieCast mc
+        where mc.movie_id in (
+            select 
+                r.movie_id 
+            from Ratings r
+            where r.rating > 9.0
+        )
+)
+;
