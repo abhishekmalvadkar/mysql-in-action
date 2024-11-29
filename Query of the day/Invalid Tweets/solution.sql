@@ -1,5 +1,5 @@
 select 
 	t.tweet_id
 from tweets t 
-where length(t.content) > 15
+where char_length(t.content) > 15
 ;
