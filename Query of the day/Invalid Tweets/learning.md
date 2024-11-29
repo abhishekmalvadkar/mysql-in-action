@@ -22,17 +22,25 @@ Explanation:
 Text "Hello":
 
 Each character is 1 byte (ASCII).
+
 CHAR_LENGTH = 5 (number of characters).
+
 LENGTH = 5 (number of bytes).
+
 Text "Привет" (Cyrillic):
 
 Each character is multi-byte (UTF-8).
+
 CHAR_LENGTH = 6 (number of characters).
+
 LENGTH = 12 (number of bytes, as each character uses 2 bytes in UTF-8).
+
 Text "你好" (Chinese):
 
 Each character is multi-byte (UTF-8).
+
 CHAR_LENGTH = 2 (number of characters).
+
 LENGTH = 6 (number of bytes, as each character uses 3 bytes in UTF-8).
 
 ### Example Output:
@@ -46,9 +54,11 @@ LENGTH = 6 (number of bytes, as each character uses 3 bytes in UTF-8).
 
 
 Summary:
+
 Use CHAR_LENGTH when you need the number of characters, irrespective of their byte size.
+
 Use LENGTH when you need the number of bytes, useful for storage or data transfer calculations.
-Copy code
+
 
 
 
