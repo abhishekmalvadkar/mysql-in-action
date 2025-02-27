@@ -203,5 +203,3 @@ As an **architect**, your job isn’t just writing queries—it’s **designing 
 
 ---
 
-**Let me know if you want mock scenarios, hands-on exercises, or real-world problem statements to practice!** 🚀
-
